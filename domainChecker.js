@@ -2,8 +2,10 @@ const { default: axios } = require("axios")
 require('dotenv').config()
 
 const domains = [
-    "ruben.dev",
-    "ruben.me"
+    "domain1.com",
+    "domain2.net",
+    "domain3.org",
+    "domain4.info",
 ]
 
 console.log('Checking domains...');
@@ -18,7 +20,7 @@ console.log('-------------------');
             }
         })
             .then(response => {
-            console.log(response.data);
+                response.data.available == true ? console.log('\x1b[42m', domain,'(Available) \x1b[0m') : console.log('\x1b[41m', domain,'(Unavailable) \x1b[0m')
             })
             .catch(error => {
             console.log(error);
